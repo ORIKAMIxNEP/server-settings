@@ -1,0 +1,11 @@
+git config --global user.name "ORIKAMIxNEP"
+git config --global user.email ta.orikami@gmail.com
+
+ssh-keygen -t ed25519 -C "ta.orikami@gmail.com"
+cat ~/.ssh/id_ed25519.pub
+
+nano ~/.ssh/config
+Host github.com
+    Hostname ssh.github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519
