@@ -2,13 +2,13 @@
 :INPUT ACCEPT [0:0]
 :OUTPUT ACCEPT [0:0]
 :FORWARD ACCEPT [0:0]
--A FORWARD -d 0.0.0.0/32 -p tcp -m tcp --dport 51400 -j ACCEPT
--A FORWARD -s 0.0.0.0/32 -p tcp ! --tcp-flags FIN,SYN,RST,ACK SYN -m state --state ESTABLISHED -m tcp --sport 51400 -j ACCEPT
+-A FORWARD -d 0.0.0.0/32 -p tcp -m tcp --dport 8080 -j ACCEPT
+-A FORWARD -s 0.0.0.0/32 -p tcp ! --tcp-flags FIN,SYN,RST,ACK SYN -m state --state ESTABLISHED -m tcp --sport 8080 -j ACCEPT
 COMMIT
 *nat
 :POSTROUTING ACCEPT [0:0]
 :PREROUTING ACCEPT [0:0]
 :OUTPUT ACCEPT [0:0]
--A POSTROUTING -d 0.0.0.0/32 -p tcp -m tcp --dport 51400 -j MASQUERADE
--A PREROUTING -p tcp -m tcp --dport 80 -j DNAT --to-destination 0.0.0.0:51400
+-A POSTROUTING -d 0.0.0.0/32 -p tcp -m tcp --dport 8080 -j MASQUERADE
+-A PREROUTING -p tcp -m tcp --dport 80 -j DNAT --to-destination 0.0.0.0:8080
 COMMIT
