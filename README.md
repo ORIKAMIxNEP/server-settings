@@ -1,1 +1,1 @@
-# ServerSettings
+# server-settings
